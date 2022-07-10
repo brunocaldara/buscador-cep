@@ -26,6 +26,15 @@ const App = () => {
   const handleSearch = async (e) => {
     if (input === '') {
       alert('Informe algum CEP')
+      focusInput()
+      return
+    }
+
+    const regexCep = /^([\d]{5})-?([\d]{3})/
+
+    if (!regexCep.test(input)) {
+      alert('Preencha corretamente o campo de CEP')
+      focusInput()
       return
     }
 
